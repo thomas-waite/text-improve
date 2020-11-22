@@ -59,7 +59,7 @@ def best_classes(model: Conv_Net, testloader):
             classes[i], 100 * class_correct[i] / class_total[i]))
 
 
-PATH = './cifar_net.pth'
+PATH = './data/cifar_net.pth'
 trainloader, testloader = load_data()
 net = Conv_Net()
 
