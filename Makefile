@@ -7,5 +7,5 @@ serve_app:
 	cd ./app; yarn start
 
 serve_ml:
-	cd ./server; FLASK_ENV=development FLASK_APP=app.py flask run
+	cd ./server; FLASK_ENV=development FLASK_APP=./src/app.py flask run
 

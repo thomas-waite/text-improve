@@ -1,13 +1,20 @@
-from flask import Flask, jsonify
+import json
+from flask import Flask, request
+from model import 
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello():
-    return 'Hello World!'
+    return json.dumps({'status': 200, 'body': 'Hello world'})
 
 
 @app.route('/predict', methods=['POST'])
-def predict(x: int):
+def predict():
+    x = float(request.form['x'])
     y = x ** 2 + 3
-    return jsonify({'class_id': 'hello', 'class_name': y})
+    return json.dumps({'class_id': 'hello', 'class_name': y})
+
+
+if __name__ == '__main__':
+    app.run()
