@@ -1,0 +1,7 @@
+{
+  "resource": "/",
+  "path": "/predict",
+  "httpMethod": "POST",
+  "body": "A football stadium is",
+  "cors": true
+}
