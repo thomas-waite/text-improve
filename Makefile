@@ -14,7 +14,7 @@ docker:
 	docker build -t model .; \
 	docker tag model:latest 873668083085.dkr.ecr.eu-west-2.amazonaws.com/text-improve:model; \
 	cd ../server; \
-	docker build -t server . \
+	docker build -t server .; \
 	docker tag server:latest 873668083085.dkr.ecr.eu-west-2.amazonaws.com/text-improve:server; \
 
 push_docker:
