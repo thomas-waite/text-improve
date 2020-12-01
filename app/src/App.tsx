@@ -1,24 +1,35 @@
 import React, { useState } from 'react';
 import TextBox from './TextBox';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import './App.css';
 
 function App() {
-  const [endpoint, setEndPoint] = useState('http://localhost:5000');
-  const [inputText, setInputText] = useState('Type here...');
+  const [endpoint, setEndPoint] = useState('http://localhost/predict');
+  const [inputText, setInputText] = useState('The football stadium is');
   const [outputText, setOutputText] = useState('');
-
-  console.log(endpoint);
+  const [loading, setLoading] = useState(false);
 
   const sendText = async (text: string) => {
-    const result = await fetch(endpoint);
-    console.log('result: ', result);
+    setLoading(true);
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text }),
+    });
+    const jsonData = await response.json();
+    const generatedText = JSON.parse(jsonData.body)[0].generated_text;
+    setLoading(false);
+    setOutputText(generatedText);
   };
 
   return (
     <div className="App">
-      <>
+      {/* <>
         <h3>API endpoint</h3>
         <div>
           <input
@@ -26,7 +37,7 @@ function App() {
             value={endpoint}
           />
         </div>
-      </>
+      </> */}
       <TextBox
         text={inputText}
         onChange={setInputText}
@@ -34,10 +45,12 @@ function App() {
       />
       <Button
         variant="contained"
+        color="secondary"
         onClick={() => sendText(inputText)}
-        style={{ padding: '5px' }}
+        style={{ padding: '10px' }}
       >
         Generate
+        {loading && <CircularProgress />}
       </Button>
       <TextBox
         text={outputText}
