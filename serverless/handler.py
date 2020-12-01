@@ -18,13 +18,9 @@ model = load_model()
 def lambda_generate_text(event, context):
     """Lambda function to handle execution of the ML inference"""
 
-    print(event)
     data = json.loads(event["body"])
-    print('data keys: ', data.keys())
     text = data["text"]
     task_id = data["task_id"]
-    print({text})
-    print({task_id})
 
     result = ''
     if task_id == 'question-answering':

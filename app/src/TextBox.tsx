@@ -14,6 +14,7 @@ export default function TextBox({ text, title, onChange }: TextBoxProps) {
         <textarea
           onChange={(event) => onChange(event.target.value)}
           value={text}
+          style={{ width: '500px', height: '150px' }}
         />
       </div>
     </>
