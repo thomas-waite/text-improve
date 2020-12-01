@@ -1,4 +1,4 @@
-FROM model:latest
+FROM 873668083085.dkr.ecr.eu-west-2.amazonaws.com/text-improve:model
 FROM python:3.7-slim
 
 ENV PYTHONPATH "${PYTHONPATH}:/usr/src/"
