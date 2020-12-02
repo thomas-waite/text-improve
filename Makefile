@@ -12,13 +12,13 @@ serve_ml:
 docker:
 	cd ./model; \
 	docker build --no-cache -t model .; \
-	docker tag model:latest 873668083085.dkr.ecr.eu-west-2.amazonaws.com/text-improve:model; \
+	docker tag model:latest 873668083085.dkr.ecr.eu-west-2.amazonaws.com/model:latest; \
 	cd ../server; \
 	docker build --no-cache -t server .; \
-	docker tag server:latest 873668083085.dkr.ecr.eu-west-2.amazonaws.com/text-improve:server; \
+	docker tag server:latest 873668083085.dkr.ecr.eu-west-2.amazonaws.com/server:latest; \
 
 push_docker:
-	docker push 873668083085.dkr.ecr.eu-west-2.amazonaws.com/text-improve:server; \
-	docker push 873668083085.dkr.ecr.eu-west-2.amazonaws.com/text-improve:model; \
+	docker push 873668083085.dkr.ecr.eu-west-2.amazonaws.com/model:latest; \
+	docker push 873668083085.dkr.ecr.eu-west-2.amazonaws.com/server:latest; \
 
 

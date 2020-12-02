@@ -1,5 +1,9 @@
 <p align="center"><img src="https://github.com/thomas-waite/text-improve/blob/master/webApp.png" width="650px"/></p>
 
+**Deployed at: https://www.textgen.dev/**
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cede6557-06ec-49e7-9704-3ae62d49b440/deploy-status)](https://app.netlify.com/sites/inspiring-lumiere-e71e33/deploys)
+
 # TextGen
 
 A web app and backend server that uses NLP ML algorithms to auto-generate a paragraph of text from a short supplied sentence start.
