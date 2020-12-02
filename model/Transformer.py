@@ -27,7 +27,7 @@ class Model:
         answer = self.question_answering(question, context=context)
         return answer
 
-    def text_generation(self, sentence_start: str, max_length: Optional[int] = 50) -> str:
+    def text_generation(self, sentence_start: str, max_length: Optional[int] = 100) -> str:
         """Generate text from a sentence start
 
         Args:
